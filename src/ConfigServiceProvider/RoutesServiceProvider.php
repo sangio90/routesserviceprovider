@@ -1,6 +1,6 @@
 <?php
 
-namespace ConfigServiceProvider;
+namespace RoutesServiceProvider;
 
 
 use Pimple\Container;
