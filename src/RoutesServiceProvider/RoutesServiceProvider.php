@@ -8,16 +8,16 @@ use Pimple\ServiceProviderInterface;
 
 class RoutesServiceProvider implements ServiceProviderInterface
 {
-    protected $applicationNameSpace = '';
-
     public function register(Container $pimple)
     {
+        $applicationNamespace = $pimple["app.namespace"] . 'Controller\\';
+
         foreach ($pimple["app.routes"] as $routeName => $routeDetails) {
             if (!is_array($routeDetails)) {
                 throw new \Exception("Routes error");
             }
 
-            $controllerName = $this->applicationNameSpace . $routeName . "Controller";
+            $controllerName = $applicationNamespace . $routeName . "Controller";
             $controller = new $controllerName($pimple);
 
             foreach ($routeDetails["actions"] as $actionName => $actionDetails) {
@@ -30,14 +30,4 @@ class RoutesServiceProvider implements ServiceProviderInterface
             }
         }
     }
-
-    /**
-     * @param mixed $applicationNameSpace
-     */
-    public function setApplicationNameSpace($applicationNameSpace)
-    {
-        $this->applicationNameSpace = $applicationNameSpace;
-    }
-
-
 }
