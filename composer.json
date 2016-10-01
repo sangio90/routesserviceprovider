@@ -1,0 +1,17 @@
+{
+    "name": "sangio90/routesserviceprovider",
+    "description": "A simple routes service provider for silex applications.",
+    "version": "1.0",
+    "require": {
+        "phpunit/phpunit": "^5.5",
+        "pimple/pimple": "^3.0",
+        "silex/silex": "^2.0"
+    },
+    "minimum-stability": "stable",
+    "authors": [
+        {"name": "sangio90", "email": "info@guidosangiovanni.com"}
+    ],
+    "autoload": {
+        "psr-0": { "RoutesServiceProvider\\": "src/" }
+    }
+}
